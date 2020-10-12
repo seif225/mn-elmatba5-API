@@ -9,7 +9,7 @@ router.post('/createUser',async(req,res)=>{
     let token = jwt.sign({_id:req.body.id.toString()},process.env.JWT_SECRET);
 
 try{
-    const user = await User.findAll({
+    const user = await User.findOne({
        where :{ phone : req.body.phone}
     });
     if (user){ 
