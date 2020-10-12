@@ -20,10 +20,10 @@ phone : {
 subType:{
     defaultValue:1,
     allowNull:false,
-    type:DataTypes.INTEGER
+    type:DataTypes.NUMBER
 },
 bio:{
-    type:DataTypes.STRING
+    type:DataTypes.TEXT
 },
 tokens:{
     type:DataTypes.ARRAY(DataTypes.STRING),
