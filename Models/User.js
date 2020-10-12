@@ -26,7 +26,7 @@ bio:{
     type:DataTypes.TEXT
 },
 tokens:{
-    type:DataTypes.ARRAY(DataTypes.STRING),
+    type:DataTypes.String,
     allowNull:false
 }
 }
