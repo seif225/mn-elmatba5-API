@@ -10,9 +10,10 @@ try{
         name:"seif",
         phone:"01006569774"
     });
+    res.status(200).send(user)
 }
 catch(e){
-
+    res.status(500).send(e)
 }
 })
 
