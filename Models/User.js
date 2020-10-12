@@ -2,6 +2,7 @@ const connection = require('../connection/connection.js')
 const Sequelize=require('sequelize');
 const User = connection.define('User' , 
 {
+    timestamps: false,
 name : {
     allowNull:false,
     type: Sequelize.STRING,
