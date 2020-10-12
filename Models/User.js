@@ -25,10 +25,10 @@ subType:{
 bio:{
     type:DataTypes.TEXT
 },
-// tokens:{
-//     type:DataTypes.ARRAY(DataTypes.STRING),
-//     allowNull:false
-// }
+tokens:{
+    type:DataTypes.ARRAY(DataTypes.STRING),
+    allowNull:false
+}
 }
 )
 
