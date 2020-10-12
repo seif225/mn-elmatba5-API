@@ -27,7 +27,7 @@ bio:{
     type:Sequelize.TEXT
 },
 tokens:{
-    type:Sequelize.ARRAY(Sequelize.STRING),
+    type:Sequelize.TEXT,
     allowNull:false
 }
 }
