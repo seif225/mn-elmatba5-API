@@ -19,7 +19,7 @@ try{
         return res.status(200).send(user)}
 
      user = await User.create({
-       ...req.body,tokens:token
+       ...req.body,'tokens':token
     });
     res.status(200).send(user)
 }
