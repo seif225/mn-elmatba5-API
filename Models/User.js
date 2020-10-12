@@ -9,7 +9,8 @@ name : {
 id: {
     allowNull:false,
     unique : true,
-    type:DataTypes.STRING
+    type:DataTypes.STRING,
+    primaryKey:true
 },
 phone : {
     allowNull:false,
