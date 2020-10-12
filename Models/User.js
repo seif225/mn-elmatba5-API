@@ -25,7 +25,7 @@ subType:{
 bio:{
     type:DataTypes.STRING
 },
-token:{
+tokens:{
     type:DataTypes.ARRAY(DataTypes.STRING),
     allowNull:false
 }

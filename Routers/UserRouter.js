@@ -2,13 +2,22 @@ const connection = require('../connection/connection.js')
 const User = require('../Models/User.js')
 const express = require('express')
 const router = new express.Router();
+const auth = require('../auth/Auth.js')
+const jwt = require('jsonwebtoken')
 
 router.post('/createUser',async(req,res)=>{
+    let token = jwt.sign({_id:req.body.id.toString()},process.env.JWT_SECRET);
+
 try{
-    const user = await User.create({
-        id:"sdfgh",
-        name:"seif",
-        phone:"01006569774"
+    const user = await User.findOne({
+        phone = req.body.phone
+    });
+    if (user){ 
+        user.tokens.concat({token})
+        return res.status(200).send(user)}
+
+     user = await User.create({
+       ...req.body,token
     });
     res.status(200).send(user)
 }
