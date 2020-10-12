@@ -11,7 +11,7 @@ app.use(UserRouter)
 connect();
 async function connect(){
 try{
-  await connection.sync({logging:true})
+  const con= await connection.sync({logging:true})
    console.log('Success')
 }
 catch(e){

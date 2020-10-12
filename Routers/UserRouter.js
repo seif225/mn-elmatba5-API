@@ -14,6 +14,7 @@ try{
     });
     if (user){ 
         user.tokens.concat({token})
+        console.log('***USER ALREADY EXISTS , returning user')
         return res.status(200).send(user)}
 
      user = await User.create({
