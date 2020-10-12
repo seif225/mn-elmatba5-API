@@ -14,6 +14,7 @@ try{
     });
     if (user){ 
         //user.tokens=token;
+        console.log(user)
         console.log('***USER ALREADY EXISTS , returning user')
         return res.status(200).send(user)}
 
