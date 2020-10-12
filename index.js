@@ -8,7 +8,7 @@ connect();
 async function connect(){
 try{
   await connection.sync({logging:true})
-   
+   console.log('Success')
 }
 catch(e){
  console.log(e)
