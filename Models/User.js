@@ -18,7 +18,7 @@ phone : {
     type:DataTypes.NUMBER
 },
 subType:{
-    defaultValue:1,
+    //defaultValue:1,
     allowNull:false,
     type:DataTypes.NUMBER
 },
