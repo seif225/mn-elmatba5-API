@@ -19,7 +19,7 @@ phone : {
 },
 subType:{
     //defaultValue:1,
-    allowNull:false,
+   // allowNull:false,
     type:DataTypes.NUMBER
 },
 bio:{
