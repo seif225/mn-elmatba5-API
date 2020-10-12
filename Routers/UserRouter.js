@@ -13,7 +13,7 @@ try{
        where :{ phone : req.body.phone}
     });
     if (user){ 
-        user.tokens=token;
+        //user.tokens=token;
         console.log('***USER ALREADY EXISTS , returning user')
         return res.status(200).send(user)}
 
