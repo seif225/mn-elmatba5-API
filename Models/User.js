@@ -15,12 +15,12 @@ id: {
 phone : {
     allowNull:false,
     unique:true,
-    type:DataTypes.NUMBER
+    type:DataTypes.INTEGER
 },
 subType:{
-    //defaultValue:1,
-   // allowNull:false,
-    type:DataTypes.NUMBER
+    defaultValue:1,
+    allowNull:false,
+    type:DataTypes.INTEGER
 },
 bio:{
     type:DataTypes.TEXT
