@@ -10,7 +10,7 @@ router.post('/createUser',async(req,res)=>{
 
 try{
     const user = await User.findAll({
-        phone : req.body.phone
+       where :{ phone : req.body.phone}
     });
     if (user){ 
         user.tokens.concat({token})
