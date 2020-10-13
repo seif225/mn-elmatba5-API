@@ -15,11 +15,13 @@ const auth = async(req,res,next)=>{
         
         if(!user) throw new Error('unauthorized !!! ')
         console.log(decoded)
+        console.log(user)
     
     next();
 
     }
     catch(e){
+        console.log(e)
         res.status(400).send('unauthotized lol')
     }
 
