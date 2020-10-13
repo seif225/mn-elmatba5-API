@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken')
 const Meal = require('../Models/MealModel.js')
 
 
-router.post('/addMeal',auth , async(req,res)=>{
+router.post('/addMeal',auth , async(req,res,next)=>{
     const body = req.body;
     try{
         const meal = await Meal.create({
