@@ -35,7 +35,7 @@ tokens:{
 )
 
 User.hasMany(Meal,{
-    foreignKey:'userId'
+   // foreignKey:'userId'
 })
 Meal.belongsTo(User)
 
