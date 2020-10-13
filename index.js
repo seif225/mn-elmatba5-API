@@ -4,10 +4,10 @@ const port = process.env.PORT;
 const connection = require('./connection/connection.js')
 const UserRouter = require('./Routers/UserRouter.js')
 const bodyParser = require('body-parser')
-
+const MealRouter = require('./Routers/MealRouter')
 app.use(bodyParser.json())
 app.use(UserRouter)
-
+app.use(MealRouter)
 connect();
 async function connect(){
 try{
