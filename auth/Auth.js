@@ -1,4 +1,5 @@
 const jwt=require('jsonwebtoken')
+const User = require('../Models/UserModel')
 const auth = async(req,res,next)=>{
 
     try{
@@ -6,11 +7,19 @@ const auth = async(req,res,next)=>{
         console.log('token: '+token)
         const decoded = await jwt.verify(token,process.env.JWT_SECRET)
         //const user = await User.findOne({_id:decoded._id, 'tokens.token':token})
+        const user = await User.findOne({
+            where :{
+                token:decoded
+            }
+        }
+        )
+        
+        if(!user) throw new Error('unauthorized !!! ')
         console.log(decoded)
     
     }
     catch(e){
-        throw e;
+        res.status(500).send(e)
     }
 
 
