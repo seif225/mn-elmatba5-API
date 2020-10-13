@@ -46,12 +46,7 @@ const Meal = connection.define('Meal',{
     postTime:{
         type:Sequelize.INTEGER,
         allowNull:false,
-    },
-    userId:{
-        type:Sequelize.TEXT,
-        allowNull:false,
-        unique:true
-    }    
+    } 
 
 })
 
