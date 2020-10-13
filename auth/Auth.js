@@ -8,7 +8,7 @@ const auth = async(req,res,next)=>{
         const decoded = await jwt.verify(token,process.env.JWT_SECRET)
         const user = await User.findOne({
             where :{
-                tokens:decoded
+                tokens:token
             }
         }
         )
