@@ -10,7 +10,7 @@ const auth = async(req,res,next)=>{
     
     }
     catch(e){
-        throw new Error ('unauthorized action!')
+        throw e;
     }
 
 
