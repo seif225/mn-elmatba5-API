@@ -13,9 +13,12 @@ router.post('/addMeal',auth , (req,res)=>{
         const meal = await Meal.create({
             ...body
         })
+        console.log(meal)
         return res.status(200).send(meal)
     }
     catch(e){
+        console.log(e)
+
         res.status(500).send(e + "internal server error")
     }
 })
