@@ -17,7 +17,7 @@ const Meal = connection.define('Meal',{
          primaryKey:true
     },
     category:{
-        type:Sequelize.STRING,
+        type:Sequelize.TEXT,
         allowNull:false
 
     },
