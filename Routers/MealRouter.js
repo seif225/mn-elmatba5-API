@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken')
 const Meal = require('../Models/MealModel.js')
 
 
-router.post('/addMeal',auth , async(req,res,next)=>{
+router.post('/addMeal',auth , async(req,res)=>{
     const body = req.body;
     try{
         const meal = await Meal.create({
@@ -19,7 +19,7 @@ router.post('/addMeal',auth , async(req,res,next)=>{
     catch(e){
         console.log(e)
         res.status(500).send(e + "internal server error")
-        next(e)
+        //next(e)
     }
 })
 
