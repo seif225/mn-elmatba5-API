@@ -1,5 +1,6 @@
 const connection = require('../connection/connection.js')
 const Sequelize=require('sequelize');
+const Meal = require('./MealModel.js')
 const User = connection.define('User' , 
 {
    
@@ -32,5 +33,10 @@ tokens:{
 }
 }
 )
+
+User.hasMany(Meal,{
+    foreignKey:'userId'
+})
+Meal.belongsTo(User)
 
 module.exports = User;
