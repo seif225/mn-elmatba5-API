@@ -19,7 +19,7 @@ router.post('/addMeal',auth , async(req,res,next)=>{
     catch(e){
         console.log(e)
         res.status(500).send(e + "internal server error")
-        next(err)
+        next(e)
     }
 })
 
