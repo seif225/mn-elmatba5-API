@@ -22,29 +22,29 @@ const Meal = connection.define('Meal',{
 
     },
     price:{
-        type:Sequelize.NUMBER,
+        type:Sequelize.INTEGER,
         allowNull:false
     },
     orderCount:{
-        type:Sequelize.NUMBER,
+        type:Sequelize.INTEGER,
         defaultValue:0
     },
     quantity:{
         defaultValue:0,
-        type:Sequelize.NUMBER
+        type:Sequelize.INTEGER
     },
     min :{
-        type:Sequelize.NUMBER,
+        type:Sequelize.INTEGER,
         allowNull:false,
     },
-    max:{ type:Sequelize.NUMBER,
+    max:{ type:Sequelize.INTEGER,
         allowNull:false,},
 
-    prepareTime:{type:Sequelize.NUMBER,
+    prepareTime:{type:Sequelize.INTEGER,
             allowNull:false,
         },
     postTime:{
-        type:Sequelize.NUMBER,
+        type:Sequelize.INTEGER,
         allowNull:false,
     },
     userId:{
