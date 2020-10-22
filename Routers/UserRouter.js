@@ -14,7 +14,7 @@ try{
        where :{ phone : req.body.phone}
     });
 
-    console.log(...req.body)
+    //console.log(...req.body)
     
     console.log("PHONE!!!!!"+req.body.phone)
 
