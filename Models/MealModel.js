@@ -41,7 +41,7 @@ const Meal = connection.define('Meal',{
         allowNull:false,},
 
     prepareTime:{type:Sequelize.INTEGER,
-            allowNull:false,
+            defaultValue:45
         },
     postTime:{
         type:Sequelize.INTEGER,
