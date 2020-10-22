@@ -14,6 +14,8 @@ try{
        where :{ phone : req.body.phone}
     });
 
+    console.log("PHONE!!!!!"+req.body.phone)
+
     if (user){ 
         user.tokens=token;
         console.log(user)
