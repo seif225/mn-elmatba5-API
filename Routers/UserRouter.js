@@ -14,7 +14,10 @@ try{
        where :{ phone : req.body.phone}
     });
 
+    console.log("OBJEEECT JSON"+req.body)
+    
     console.log("PHONE!!!!!"+req.body.phone)
+
 
     if (user){ 
         user.tokens=token;
