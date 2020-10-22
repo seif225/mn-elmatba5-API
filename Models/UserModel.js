@@ -17,7 +17,7 @@ id: {
 phone : {
     allowNull:false,
     unique:true,
-    type:Sequelize.TEXT('long')
+    type:Sequelize.STRING
 },
 subType:{
     defaultValue:1,
