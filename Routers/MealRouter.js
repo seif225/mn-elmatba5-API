@@ -94,6 +94,24 @@ catch(e){
 })
 
 
+router.get('/getOneMealById',auth,async(req,res)=>{
+    const id = req.query.userId;
+    try{
+        const meal = await Meal.findOne({
+                where : {id}
+
+            })
+            res.send(meal)
+   
+        }
+
+    catch(e){
+        console.log(e)
+        res.status(500)
+    }
+})
+
+
 
 
 module.exports = router
