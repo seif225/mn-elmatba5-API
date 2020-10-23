@@ -78,10 +78,10 @@ router.get('/getAllMeals',async(req,res)=>{
 })
 
 router.get('/getMealsByUserId', auth , async (req,res)=>{
-  try{  const UserId = req.query.userId;
+  try{  const id = req.query.mealId;
  
     const meals = await Meal.findAll({
-        where:{UserId}
+        where:{id}
     })
     console.log(meals)
     res.status(200).send(meals);
