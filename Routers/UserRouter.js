@@ -4,7 +4,7 @@ const express = require('express')
 const router = new express.Router();
 const auth = require('../auth/Auth.js')
 const jwt = require('jsonwebtoken')
-
+const Meal = require('../Models/MealModel')
 router.post('/createUser',async(req,res)=>{
 
 let token = jwt.sign(req.body.id.toString(),process.env.JWT_SECRET);
@@ -50,5 +50,20 @@ catch(e){
 }
 
 });
+
+
+router.get('/getUserWithMeals', auth,async (req,res)=>{
+    const id = req.query.userId;
+    try{const user = await User.findOne({
+        where:{id},
+       include :{model : Meal}
+    })
+    res.status(200).send(user)
+}
+    catch(e){
+        console.log(e)
+    }
+})
+
 
 module.exports = router;
