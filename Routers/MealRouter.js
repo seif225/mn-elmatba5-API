@@ -77,6 +77,22 @@ router.get('/getAllMeals',async(req,res)=>{
     }
 })
 
+router.get('/getMealsByUserId', auth , async (req,res)=>{
+  try{  const UserId = req.query.userId;
+ 
+    const meals = await Meal.findAll({
+        where:{UserId}
+    })
+    console.log(meals)
+    res.status(200).send(meals);
+
+}
+catch(e){
+    console.log(e)
+    res.status(500).send(e)
+}
+})
+
 
 
 

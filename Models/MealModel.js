@@ -14,9 +14,10 @@ const Meal = connection.define('Meal',{
     id:{
         type: Sequelize.UUID,
          defaultValue: Sequelize.UUIDV4 ,
-         primaryKey:true
+         primaryKey:true,
+        
     },
-    category:{
+    category:{  
         type:Sequelize.TEXT,
         allowNull:false
 
