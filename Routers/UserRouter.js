@@ -43,9 +43,9 @@ router.get('/getUserById', auth ,async (req,res)=>{
         where :{id}
     })
     res.status(200).send(user)
-}
+} 
 catch(e){
-    console.log(e)
+    console.log(e+"")
     res.status(500).send(e)
 }
 
