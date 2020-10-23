@@ -9,6 +9,7 @@ const MealRouter = require('./Routers/MealRouter')
 app.use(bodyParser.json())
 app.use(UserRouter)
 app.use(MealRouter)
+
 connect();
 async function connect(){
 try{
