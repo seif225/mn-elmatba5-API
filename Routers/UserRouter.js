@@ -37,4 +37,18 @@ catch(e){
 }
 })
 
+router.get('/getUserById', auth ,async (req,res)=>{
+   try{ const id = req.query.userId;
+    const user = await User.findOne({
+        where :{id}
+    })
+    res.status(200).send(user)
+}
+catch(e){
+    console.log(e)
+    res.status(500).send(e)
+}
+
+});
+
 module.exports = router;
