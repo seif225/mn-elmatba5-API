@@ -5,6 +5,13 @@ const router = new express.Router();
 const auth = require('../auth/Auth.js')
 const jwt = require('jsonwebtoken')
 const Meal = require('../Models/MealModel')
+var multer  = require('multer')
+
+const upload = multer({
+    dest: 'avatars'
+    })
+
+
 router.post('/createUser',async(req,res)=>{
 
 let token = jwt.sign(req.body.id.toString(),process.env.JWT_SECRET);
@@ -63,6 +70,11 @@ router.get('/getUserWithMeals', auth,async (req,res)=>{
     catch(e){
         console.log(e)
     }
+})
+
+
+router.post('/users/me/avatar', upload.single('avatar'), (req, res) => {
+res.send()
 })
 
 
