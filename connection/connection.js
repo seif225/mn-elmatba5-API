@@ -9,5 +9,6 @@ const connection = new Sequelize(
     define: {
         timestamps: true
       }
-  });
+  }); 
+  
 module.exports=connection
