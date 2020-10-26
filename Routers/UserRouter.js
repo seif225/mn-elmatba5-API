@@ -10,16 +10,15 @@ const getStream = require('get-stream')
 var fs = require('fs');
 
 var storage = multer.diskStorage({
-    destination: './uploads/',
-    filename: function(req, file, cb) {
-      return crypto.pseudoRandomBytes(16, function(err, raw) {
-        if (err) {
-          return cb(err);
-        }
-        return cb(null, "" + (raw.toString('hex')) + (path.extname(file.originalname)));
-      });
+    destination: function (req, file, cb) {
+      cb(null, 'uploads')
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.fieldname + '-' + Date.now())
     }
-  });
+  })
+   
+  var upload = multer({ storage: storage })
 
 
 router.post('/createUser',async(req,res)=>{
@@ -82,15 +81,17 @@ router.get('/getUserWithMeals', auth,async (req,res)=>{
     }
 })
 
-router.post("/upload",multer({
-      storage: storage
-    }).single('upload'), function(req, res) {
-      console.log(req.file);
-      console.log(req.body);
-      res.redirect("/uploads/" + req.file.filename);
-      console.log(req.file.filename);
-      return res.status(200).end();
-    });
-
+router.post('/uploadfile', 
+upload.single('uploadfile'), (req, res, next) => {
+    const file = req.file
+    console.log(file)
+    if (!file) {
+      const error = new Error('Please upload a file')
+      error.httpStatusCode = 400
+      return next(error)
+    }
+      res.send(file)
+    
+  })
 
 module.exports = router;
