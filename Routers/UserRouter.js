@@ -82,7 +82,7 @@ router.get('/getUserWithMeals', auth,async (req,res)=>{
     }
 })
 
-app.post("/upload",multer({
+router.post("/upload",multer({
       storage: storage
     }).single('upload'), function(req, res) {
       console.log(req.file);
