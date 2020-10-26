@@ -81,7 +81,7 @@ router.get('/getUserWithMeals', auth,async (req,res)=>{
 })
 
 
-router.post('/users/me/avatar', upload.single('avatar'),
+router.post('/users/me/avatar',
   async (req, res) => {
       console.log(req.query)
       console.log(req.body)
@@ -97,6 +97,7 @@ router.post('/users/me/avatar', upload.single('avatar'),
    
 },
  (error, req, res, next) => {
+     console.log(error)
     res.status(400).send({ error: error.message })
     })
 
