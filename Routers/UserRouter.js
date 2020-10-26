@@ -6,7 +6,7 @@ const auth = require('../auth/Auth.js')
 const jwt = require('jsonwebtoken')
 const Meal = require('../Models/MealModel')
 var multer  = require('multer')
-
+const getStream = require('get-stream')
 const upload = multer({
     dest: 'images',
     limits: {
