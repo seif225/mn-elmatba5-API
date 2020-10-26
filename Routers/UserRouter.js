@@ -83,7 +83,8 @@ router.get('/getUserWithMeals', auth,async (req,res)=>{
 
 router.post('/users/me/avatar', upload.single('avatar'),
   async (req, res) => {
-      console.log(req.query.photo)
+      console.log(req.query)
+      console.log(req.body)
      try { 
         //  const buffer = await getStream(req.file.stream)
         // console.log(buffer)
