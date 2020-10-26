@@ -8,9 +8,17 @@ const Meal = require('../Models/MealModel')
 var multer  = require('multer')
 
 const upload = multer({
-    dest: 'avatars'
+    dest: 'images',
+    limits: {
+    fileSize: 1000000
+    },
+    fileFilter(req, file, cb) {
+    if (!file.originalname.match(/\.(doc|docx)$/)) {
+    return cb(new Error('Please upload a Word document'))
+    }
+    cb(undefined, true)
+    }
     })
-
 
 router.post('/createUser',async(req,res)=>{
 
@@ -74,8 +82,11 @@ router.get('/getUserWithMeals', auth,async (req,res)=>{
 
 
 router.post('/users/me/avatar', upload.single('avatar'),
- (req, res) => {
-    res.send()
+  (req, res) => {
+     const avatar = req.file.buffer;
+    console.log(avatar)
+
+    res.send('success')
 },
  (error, req, res, next) => {
     res.status(400).send({ error: error.message })
