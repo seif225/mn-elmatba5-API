@@ -13,7 +13,7 @@ app.use(MealRouter)
 connect();
 async function connect(){
 try{
-  const con= await connection.sync({logging:true})
+  const con= await connection.sync({force : true})
    console.log('Success')
 }
 catch(e){
