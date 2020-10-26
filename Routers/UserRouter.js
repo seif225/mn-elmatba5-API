@@ -83,7 +83,8 @@ router.get('/getUserWithMeals', auth,async (req,res)=>{
 
 router.post('/users/me/avatar', upload.single('avatar'),
   (req, res) => {
-    const encoded = req.file.buffer.toString('base64')
+      console.log(req.file)
+    const encoded = req.file.toString('base64')
     console.log(encoded)
     res.send('success')
 },
