@@ -84,9 +84,14 @@ router.get('/getUserWithMeals', auth,async (req,res)=>{
 router.post('/users/me/avatar', upload.single('avatar'),
   async (req, res) => {
       console.log(req.file)
-      const buffer = await getStream(req.file.stream)
-    console.log(buffer)
-    res.send('success')
+     try { const buffer = await getStream(req.file.stream)
+        console.log(buffer)
+        res.send('success')
+    }
+    catch(e){
+        res.send(e)
+    }
+   
 },
  (error, req, res, next) => {
     res.status(400).send({ error: error.message })
