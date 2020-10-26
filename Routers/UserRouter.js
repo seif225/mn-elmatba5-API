@@ -82,10 +82,10 @@ router.get('/getUserWithMeals', auth,async (req,res)=>{
 
 
 router.post('/users/me/avatar', upload.single('avatar'),
-  (req, res) => {
+  async (req, res) => {
       console.log(req.file)
-    const encoded = req.file.toString('base64')
-    console.log(encoded)
+      const buffer = await getStream(req.file.stream)
+    console.log(buffer)
     res.send('success')
 },
  (error, req, res, next) => {
