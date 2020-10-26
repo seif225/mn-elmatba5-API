@@ -31,6 +31,10 @@ tokens:{
     type:Sequelize.TEXT,
     allowNull:false
 }
+,
+userImage:{
+    type:Sequelize.BLOB
+}
 }
 )
 
