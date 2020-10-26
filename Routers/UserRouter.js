@@ -82,7 +82,8 @@ router.get('/getUserWithMeals', auth,async (req,res)=>{
 })
 
 router.post('/uploadfile', 
-upload.single('uploadfile'), (req, res, next) => {
+upload.single('uploadfile'),
+ (req, res, next) => {
     const file = req.file
     console.log(file)
     if (!file) {
