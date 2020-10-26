@@ -7,18 +7,20 @@ const jwt = require('jsonwebtoken')
 const Meal = require('../Models/MealModel')
 var multer  = require('multer')
 const getStream = require('get-stream')
-const upload = multer({
-    dest: 'images',
-    limits: {
-    fileSize: 1000000
-    },
-    fileFilter(req, file, cb) {
-    if (!file.originalname.match(/\.(jpg|png)$/)) {
-    return cb(new Error('Please upload an image'))
+var fs = require('fs');
+
+var storage = multer.diskStorage({
+    destination: './uploads/',
+    filename: function(req, file, cb) {
+      return crypto.pseudoRandomBytes(16, function(err, raw) {
+        if (err) {
+          return cb(err);
+        }
+        return cb(null, "" + (raw.toString('hex')) + (path.extname(file.originalname)));
+      });
     }
-    cb(undefined, true)
-    }
-    })
+  });
+
 
 router.post('/createUser',async(req,res)=>{
 
@@ -80,26 +82,15 @@ router.get('/getUserWithMeals', auth,async (req,res)=>{
     }
 })
 
-
-router.post('/users/me/avatar',
-  async (req, res) => {
-      console.log(req.query)
-      console.log(req.body)
-     try { 
-        //  const buffer = await getStream(req.file.stream)
-        // console.log(buffer)
-        res.send('success')
-    }
-    catch(e){
-        console.log(e)
-        res.send(e)
-    }
-   
-},
- (error, req, res, next) => {
-     console.log(error)
-    res.status(400).send({ error: error.message })
-    })
+app.post("/upload",multer({
+      storage: storage
+    }).single('upload'), function(req, res) {
+      console.log(req.file);
+      console.log(req.body);
+      res.redirect("/uploads/" + req.file.filename);
+      console.log(req.file.filename);
+      return res.status(200).end();
+    });
 
 
 module.exports = router;
