@@ -77,7 +77,9 @@ router.get('/getUserWithMeals', auth,async (req,res)=>{
 router.post('/profile', upload.any('avatar'), 
  (req, res, next)=> {
     const file = req.file;
+    const body = req.body
     console.log(file)
+    console.log(body)
     next();
   })
 
