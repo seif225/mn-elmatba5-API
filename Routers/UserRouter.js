@@ -83,7 +83,7 @@ router.get('/getUserWithMeals', auth,async (req,res)=>{
 
 router.post('/users/me/avatar', upload.single('avatar'),
   (req, res) => {
-     const avatar = req.file.buffer;
+     const avatar = req.file;
     console.log(avatar)
 
     res.send('success')
