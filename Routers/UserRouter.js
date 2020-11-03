@@ -87,7 +87,7 @@ router.post('/profile', upload.any('avatar'),
   
   router.post('/searchMeals',auth,async(req,res)=>{
       const sort = req.query.sort;
-      const search = req.query.search.toLowerCase();
+      const search = req.query.search;
         console.log(sort)
         console.log(search)
 
@@ -99,7 +99,8 @@ router.post('/profile', upload.any('avatar'),
               try{
           const meals = await Meal.findAll({
               where:{
-                  title:{ [Op.like]:'%'+ search + '%' }
+                  title:{ [Op.like]:'%'+ search.toString()
+                  .toLowerCase() + '%' }
               },
               order:[order]
           })
