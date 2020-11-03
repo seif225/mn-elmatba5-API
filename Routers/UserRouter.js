@@ -87,7 +87,7 @@ router.post('/profile', upload.any('avatar'),
   
   router.post('/searchMeals',auth,async(req,res)=>{
       const sort = req.query.sort;
-      const search = req.query.search;
+      var search = req.query.search;
         console.log(sort)
         console.log(search)
 
