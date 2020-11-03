@@ -95,7 +95,7 @@ router.post('/profile', upload.any('avatar'),
               try{
           const meals = await Meals.findAll({
               where:{
-                  title:{ $ilike: search + '%' }
+                  title:{ [Op.like]: search + '%' }
               },
               order: order
           })
@@ -103,6 +103,7 @@ router.post('/profile', upload.any('avatar'),
           res.status(200).send(meals)
       }
       catch(e){
+          console.log(e)
         res.status(404).send(e)
 
       }
