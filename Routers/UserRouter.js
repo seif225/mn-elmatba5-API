@@ -9,7 +9,7 @@ var multer  = require('multer')
 const getStream = require('get-stream')
 var fs = require('fs');
 const { Op } = require("sequelize");
-    
+
 var upload = multer({ dest: 'uploads/' })
 
 
@@ -88,7 +88,9 @@ router.post('/profile', upload.any('avatar'),
   router.post('/searchMeals',auth,async(req,res)=>{
       const sort = req.query.sort;
       const search = req.query.search;
-        
+        console.log(sort)
+        console.log(seatch)
+
         var order =  ['title', 'ASC']
         if(sort===2) ['title', 'DES']
         if(sort===3) ['price', 'ASC']
@@ -97,7 +99,7 @@ router.post('/profile', upload.any('avatar'),
               try{
           const meals = await Meal.findAll({
               where:{
-                  title:{ [Op.like]: search + '%' }
+                  title:{ [Op.like]:    '%'+ search + '%' }
               },
               order: order
           })
