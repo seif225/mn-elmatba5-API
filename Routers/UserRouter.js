@@ -92,15 +92,14 @@ router.post('/profile', upload.any('avatar'),
         console.log(search)
         console.log(search.toLowerCase())
         var order =  ['title', 'ASC']
-        if(sort===2) ['title', 'DESC']
-        if(sort===3) ['price', 'ASC']
-        if(sort===4) ['price', 'DESC']
+        if(sort===2)    sort = ['title', 'DESC']
+        if(sort===3)    sort =  ['price', 'ASC']
+        if(sort===4)    sort = ['price', 'DESC']
             console.log(order)
               try{
           const meals = await Meal.findAll({
               where:{
-                  title:{ [Op.iLike]:'%'+ search.toString()
-                  .toLowerCase() + '%' }
+                  title:{ [Op.iLike]:'%'+ search + '%' }
               },
               order:[order]
           })
