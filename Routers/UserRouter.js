@@ -101,7 +101,7 @@ router.post('/profile', upload.any('avatar'),
               where:{
                   title:{ [Op.like]:'%'+ search + '%' }
               },
-              order:{order}
+              order:[order]
           })
 
           res.status(200).send(meals)
