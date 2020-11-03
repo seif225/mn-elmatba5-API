@@ -93,7 +93,7 @@ router.post('/profile', upload.any('avatar'),
         if(sort===4) ['price', 'DES']
 
               try{
-          const meals = await Meals.findAll({
+          const meals = await Meal.findAll({
               where:{
                   title:{ [Op.like]: search + '%' }
               },
