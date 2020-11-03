@@ -89,7 +89,7 @@ router.post('/profile', upload.any('avatar'),
       const sort = req.query.sort;
       const search = req.query.search;
         console.log(sort)
-        console.log(seatch)
+        console.log(search)
 
         var order =  ['title', 'ASC']
         if(sort===2) ['title', 'DES']
