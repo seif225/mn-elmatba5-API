@@ -8,7 +8,8 @@ const Meal = require('../Models/MealModel')
 var multer  = require('multer')
 const getStream = require('get-stream')
 var fs = require('fs');
-
+const { Op } = require("sequelize");
+    
 var upload = multer({ dest: 'uploads/' })
 
 
@@ -87,6 +88,7 @@ router.post('/profile', upload.any('avatar'),
   router.post('/searchMeals',auth,async(req,res)=>{
       const sort = req.query.sort;
       const search = req.query.search;
+        
         var order =  ['title', 'ASC']
         if(sort===2) ['title', 'DES']
         if(sort===3) ['price', 'ASC']
