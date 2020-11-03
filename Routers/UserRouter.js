@@ -99,7 +99,7 @@ router.post('/profile', upload.any('avatar'),
               try{
           const meals = await Meal.findAll({
               where:{
-                  title:{ [Op.like]:'%'+ search.toString()
+                  title:{ [Op.iLike]:'%'+ search.toString()
                   .toLowerCase() + '%' }
               },
               order:[order]
