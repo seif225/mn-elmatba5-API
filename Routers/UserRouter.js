@@ -83,5 +83,30 @@ router.post('/profile', upload.any('avatar'),
     next();
   })
 
+  
+  router.post('/searchMeals',auth,async(req,res)=>{
+      const sort = req.query.sort;
+      const search = req.query.search;
+        var order =  ['title', 'ASC']
+        if(sort===2) ['title', 'DES']
+        if(sort===3) ['price', 'ASC']
+        if(sort===4) ['price', 'DES']
+
+              try{
+          const meals = await Meals.findAll({
+              where:{
+                  title:{ $ilike: search + '%' }
+              },
+              order: order
+          })
+
+          res.status(200).send(meals)
+      }
+      catch(e){
+        res.status(404).send(e)
+
+      }
+  })
+
 
 module.exports = router;
