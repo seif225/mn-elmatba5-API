@@ -93,6 +93,9 @@ router.post('/profile' , auth ,async(req,res)=>{
            {id}   
         
       })
+      console.log(user);
+      console.log(image)
+      console.log(id)
       console.log(user.image)
     }
     catch(e){
