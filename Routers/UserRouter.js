@@ -75,15 +75,31 @@ router.get('/getUserWithMeals', auth,async (req,res)=>{
 
 
 
-router.post('/profile', upload.any('avatar'), 
- (req, res, next)=> {
-    const file = req.file;
-    const body = req.body
-    console.log(file)
-    console.log(body)
-    next();
-  })
+// router.post('/profile', upload.any('avatar'),  (req, res, next)=> {
+//     const file = req.file;
+//     const body = req.body
+//     console.log(file)
+//     console.log(body)
+//     next();
+//   })
 
+router.post('/profile' , auth ,async(req,res=>{
+    const image = req.query.image;
+    const id = req.query.userId;
+    try
+    {
+      const user =await User.update({userImage:image},{
+          where:
+           {id}   
+          
+      })
+      console.log(user.image)
+    }
+    catch(e){
+
+    }
+
+}))
   
   router.post('/searchMeals',auth,async(req,res)=>{
       const sort = req.query.sort;
