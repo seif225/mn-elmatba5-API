@@ -91,7 +91,7 @@ router.post('/profile' , auth ,async(req,res=>{
       const user =await User.update({userImage:image},{
           where:
            {id}   
-    
+        
       })
       console.log(user.image)
     }
