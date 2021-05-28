@@ -83,7 +83,7 @@ router.get('/getUserWithMeals', auth,async (req,res)=>{
 //     next();
 //   })
 
-router.post('/profile' , auth ,async(req,res=>{
+router.post('/profile' , auth ,async(req,res)=>{
     const image = req.query.image;
     const id = req.query.userId;
     try
@@ -96,10 +96,10 @@ router.post('/profile' , auth ,async(req,res=>{
       console.log(user.image)
     }
     catch(e){
-
+        console.log(e)
     }
 
-}))
+})
   
   router.post('/searchMeals',auth,async(req,res)=>{
       const sort = req.query.sort;
