@@ -7,6 +7,7 @@ const connection = new Sequelize(
     host:'ec2-107-22-241-205.compute-1.amazonaws.com',
     port:5432,
     dialect: 'postgres',
+    ssl :true,
     define: {
         timestamps: true
       }
