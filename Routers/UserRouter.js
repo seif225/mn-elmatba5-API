@@ -84,7 +84,7 @@ router.get('/getUserWithMeals', auth,async (req,res)=>{
 //   })
 
 router.post('/profile' , auth ,async(req,res)=>{
-    const image = req.query.image;
+  
     const id = req.query.userId;
     const imageinField = req.fields.image;
     try
