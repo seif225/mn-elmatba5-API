@@ -89,13 +89,13 @@ router.post('/profile' , auth ,async(req,res)=>{
     const imageinField = req.field.image;
     try
     {
-      const user =await User.update({userImage:image},{
+      const user =await User.update({userImage:imageinField},{
           where:
            {id}   
         
       })
       console.log(user);
-      console.log(image)
+      //console.log(image)
       console.log(id)
       console.log(imageinField)
       console.log(user.image)
