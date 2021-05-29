@@ -86,8 +86,7 @@ router.get('/getUserWithMeals', auth,async (req,res)=>{
 router.post('/profile' , auth ,async(req,res)=>{
   
     const id = req.query.userId;
-    console.log(req)
-    const imageinField = req.files.image;
+    const imageinField = req.query.image;
     try
     {
       const user =await User.update({userImage:imageinField},{
