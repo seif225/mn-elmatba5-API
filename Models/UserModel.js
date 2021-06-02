@@ -33,7 +33,7 @@ tokens:{
 }
 ,
 userImage:{
-    type:Sequelize.BLOB
+    type:Sequelize.STRING
 }
 }
 )

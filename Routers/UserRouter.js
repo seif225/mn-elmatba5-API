@@ -16,6 +16,7 @@ var upload = multer({ dest: 'uploads/' })
 router.post('/createUser',async(req,res)=>{
 
 let token = jwt.sign(req.body.id.toString(),process.env.JWT_SECRET);
+
 try{
    
     let user = await User.findOne({
