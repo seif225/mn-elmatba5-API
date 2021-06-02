@@ -35,7 +35,7 @@ console.log("offset "+page)
 try {
    
     const users = await User.findAll({
-        limit:5,
+        limit:page,
         offset:page,
         attributes:{exclude :['tokens']},
         include:{
