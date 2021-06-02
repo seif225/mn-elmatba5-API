@@ -30,12 +30,13 @@ router.get('/getUsersInCategory',auth,async(req,res)=>{
 
 const category = req.query.category;
 var page = Number(req.query.page);
+var limit = req.query.limit;
 console.log("offset "+page)
 
 try {
    
     const users = await User.findAll({
-        limit:page,
+        limit:limit,
         offset:page,
         attributes:{exclude :['tokens']},
         include:{
