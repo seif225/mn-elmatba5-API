@@ -50,7 +50,7 @@ router.get('/getUserById', auth ,async (req,res)=>{
    try{ const id = req.query.userId;
     const user = await User.findOne({
         where :{id},
-        exclude:'tokens'
+        attributes:{ exclude:['tokens']}
     })
     res.status(200).send(user)
 } 
