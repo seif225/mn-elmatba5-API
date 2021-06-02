@@ -66,6 +66,7 @@ router.get('/getUserWithMeals', auth,async (req,res)=>{
     const id = req.query.userId;
     try{const user = await User.findOne({
         where:{id},
+        attributes : {exclude : ['tokens']},
        include :{model : Meal}
     })
     res.status(200).send(user)
