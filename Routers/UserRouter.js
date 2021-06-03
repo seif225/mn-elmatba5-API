@@ -41,7 +41,7 @@ try{
     });
 
     var cart = await Cart.create({
-        UserId:req.body.id
+        'UserId':req.body.id
     });
     res.status(200).send(user)
 }
