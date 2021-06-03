@@ -1,6 +1,7 @@
 const connection = require('../connection/connection.js')
 const Sequelize=require('sequelize');
 const Meal = require('./MealModel.js')
+const Cart = require('./CartModel.js')
 const User = connection.define('User' , 
 {
    
@@ -42,5 +43,6 @@ User.hasMany(Meal,{
    // foreignKey:'userId'
 })
 Meal.belongsTo(User)
+Cart.belongsTo(User)
 
 module.exports = User;
