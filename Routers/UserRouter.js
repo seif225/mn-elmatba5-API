@@ -1,5 +1,6 @@
 const connection = require('../connection/connection.js')
 const User = require('../Models/UserModel.js')
+const Cart = require('../Models/CartModel.js')
 const express = require('express')
 const router = new express.Router();
 const auth = require('../auth/Auth.js')
