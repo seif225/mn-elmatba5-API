@@ -22,7 +22,7 @@ const CartItem=connection.define('Cart_item',{
         defaultValue:this.discount*this.init_price
     },
     quantity:{
-        type:Sequelize.NUMBER,
+        type:Sequelize.INTEGER,
         defaultValue:1
     }
 })
