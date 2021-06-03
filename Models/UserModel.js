@@ -34,7 +34,7 @@ tokens:{
 }
 ,
 userImage:{
-    type:Sequelize.STRING
+    type:Sequelize.TEXT
 }
 }
 )

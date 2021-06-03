@@ -10,6 +10,12 @@ const Cart = connection.define('Cart',{
     },
     email:{
         type:Sequelize.TEXT,
+        isEmail: true,
+        validate:{
+            customValidator(value){
+                if(value===null)this.email="email :D";
+            }
+        }
        
     },
     address: {
