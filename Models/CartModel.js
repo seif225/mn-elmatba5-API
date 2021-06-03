@@ -1,5 +1,6 @@
 const connection = require('../connection/connection.js');
 const Sequelize = require('sequelize');
+const CartItem = require('../Models/CartItemModel.js')
 
 const Cart = connection.define('Cart',{
     cart_id:{
@@ -41,5 +42,8 @@ const Cart = connection.define('Cart',{
       
     }
 })
+
+Cart.hasMany(CartItem)
+CartItem.belongsTo(Cart)
 
 module.exports=Cart;
