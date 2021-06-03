@@ -38,6 +38,8 @@ try{
      user = await User.create({
        ...req.body,'tokens':token
     });
+
+    var cart = await Cart.create();
     res.status(200).send(user)
 }
 catch(e){
