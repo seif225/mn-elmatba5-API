@@ -10,28 +10,28 @@ const Cart = connection.define('Cart',{
     },
     email:{
         type:Sequelize.TEXT,
-        allowNull:true
+       
     },
     address: {
         type: Sequelize.TEXT,
-        allowNull:true
+       
     },
     city:{
         type: Sequelize.TEXT,
-        allowNull:true
+       
     },
     gov :{
         type: Sequelize.TEXT,
-        allowNull:true
+        
     },
     first_name:{
         type: Sequelize.TEXT,
-        allowNull:true
+        
     }
     ,
     last_name:{
         type: Sequelize.TEXT,
-        allowNull:true
+      
     }
 })
 
