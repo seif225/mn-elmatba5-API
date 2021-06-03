@@ -42,7 +42,7 @@ try{
     console.log(req.body.id)
 
     var cart = await Cart.create({
-        userId:req.body.id
+        UserId:req.body.id
     });
     res.status(200).send(user)
 }
