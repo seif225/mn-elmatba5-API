@@ -28,7 +28,5 @@ const CartItem=connection.define('Cart_item',{
 })
 
 
-CartItem.hasOne(Meal);
-Meal.belongsTo(CartItem);
 
 module.exports=CartItem;

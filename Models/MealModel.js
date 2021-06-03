@@ -55,5 +55,7 @@ const Meal = connection.define('Meal',{
 
 })
 
+CartItem.hasOne(Meal);
+Meal.belongsTo(CartItem);
 
 module.exports = Meal;
