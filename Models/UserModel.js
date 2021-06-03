@@ -42,7 +42,9 @@ userImage:{
 User.hasMany(Meal,{
    // foreignKey:'userId'
 })
+User.hasOne(Cart)
 Meal.belongsTo(User)
 Cart.belongsTo(User)
+Cart.sync();
 
 module.exports = User;
