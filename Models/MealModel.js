@@ -2,7 +2,7 @@ const connection = require('../connection/connection.js');
 const Sequelize = require('sequelize')
 const User = require('../Models/UserModel')
 const CartItem = require('../Models/CartItemModel.js')
-const Meal = require('./MealModel.js')
+
 
 
 const Meal = connection.define('Meal',{
