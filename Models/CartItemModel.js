@@ -2,7 +2,7 @@ const connection = require('../connection/connection.js');
 const Sequelize = require('sequelize');
 const Meal = require('./MealModel.js')
 
-const CartItemModel=connection.define('Cart_item',{
+const CartItem=connection.define('Cart_item',{
     item_id:{
         type: Sequelize.UUID,
          defaultValue: Sequelize.UUIDV4 ,
@@ -31,4 +31,4 @@ const CartItemModel=connection.define('Cart_item',{
 CartItem.hasOne(Meal);
 Meal.belongsTo(CartItem);
 
-module.exports=CartItemModel;
+module.exports=CartItem;
