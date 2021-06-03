@@ -27,8 +27,7 @@ const CartItem=connection.define('Cart_item',{
     }
 })
 
-Meal.hasOne(CartItem);
-CartItem.belongsTo(Meal);
+
 
 
 
