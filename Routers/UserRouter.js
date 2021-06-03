@@ -40,7 +40,9 @@ try{
        ...req.body,'tokens':token
     });
 
-    var cart = await Cart.create();
+    var cart = await Cart.create({
+        UserId:req.body.id
+    });
     res.status(200).send(user)
 }
 catch(e){
