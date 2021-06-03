@@ -55,7 +55,5 @@ const Meal = connection.define('Meal',{
 
 })
 
-Meal.hasOne(MealItem);
-MealItem.belongsTo(Meal);
 
 module.exports = Meal;
