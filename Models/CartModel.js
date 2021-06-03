@@ -11,32 +11,33 @@ const Cart = connection.define('Cart',{
     email:{
         type:Sequelize.TEXT,
         isEmail: true,
-        validate:{
-            customValidator(value){
-                if(value===null)this.email="email :D";
-            }
-        }
+      defaultValue:""
        
     },
     address: {
         type: Sequelize.TEXT,
+        defaultValue:""
        
     },
     city:{
         type: Sequelize.TEXT,
+        defaultValue:""
        
     },
     gov :{
         type: Sequelize.TEXT,
+        defaultValue:""
         
     },
     first_name:{
         type: Sequelize.TEXT,
+        defaultValue:""
         
     }
     ,
     last_name:{
         type: Sequelize.TEXT,
+        defaultValue:""
       
     }
 })
