@@ -39,6 +39,7 @@ try{
      user = await User.create({
        ...req.body,'tokens':token
     });
+    console.log(req.body.id)
 
     var cart = await Cart.create({
         'UserId':req.body.id
