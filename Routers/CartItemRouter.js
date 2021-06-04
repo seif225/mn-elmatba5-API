@@ -9,10 +9,10 @@ const Cart = require('../Models/CartModel.js')
 
 
 router.post('/addToCart' , auth , async (req,res)=>{
-    const userId = req.body.id;
+    const userId = req.query.id;
     
-    if(userId===null||undefined) 
-        return res.status(500).send('id cannot be null')
+    if(userId===null || userId===undefined) 
+        return res.status(505).send('id cannot be null')
 
     try {
         const user = await User.findOne({
@@ -27,7 +27,7 @@ router.post('/addToCart' , auth , async (req,res)=>{
 }
 catch(e){
     console.log(e);
-    res.status(500).send(e);
+    res.status(501).send(e);
 }
 
 }
