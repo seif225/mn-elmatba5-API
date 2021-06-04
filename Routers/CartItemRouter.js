@@ -9,18 +9,24 @@ const Cart = require('../Models/CartModel.js')
 
 
 router.post('/addToCart' , auth , async (req,res)=>{
-    const userId = req.query.id;
+    const userId = req.query.userId;
+    const mealId = req.query.mealId;
     
     if(userId===null || userId===undefined) 
-        return res.status(505).send('id cannot be null')
+        return res.status(505).send(new Error('User Id cannot be null'))
+
+        if(mealId===null || mealId===undefined) 
+        return res.status(505).send(new Error('meal Id cannot be null'))
 
     try {
         const user = await User.findOne({
-        where:{
-            id:userId
-        },
-        include:{model:Cart}
-    });
+            where:{id:userId },
+            include:{model:Cart}  
+                  });
+
+      const cartId = user.Cart.cart_id; 
+      console.log(cartId)           
+
 
     console.log(user);
     res.send(user);
