@@ -26,11 +26,12 @@ router.post('/addToCart' , auth , async (req,res)=>{
                   });
 
       const cartId = user.Cart.cart_id; 
-      const cartItem = await CartItemModel.Create({
+      const cartItem = await CartItem.Create({
         MealId:mealId,
         CartCartId:cartId
       })
         
+      console.log(cartItem)
     res.send(cartItem);
 }
 catch(e){
