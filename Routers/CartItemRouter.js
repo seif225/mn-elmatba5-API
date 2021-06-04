@@ -26,7 +26,7 @@ router.post('/addToCart' , auth , async (req,res)=>{
                   });
 
       const cartId = user.Cart.cart_id; 
-      const cartItem = await CartItem.Create({
+      const cartItem = await CartItem.create({
         MealId:mealId,
         CartCartId:cartId
       })
