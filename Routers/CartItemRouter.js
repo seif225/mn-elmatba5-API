@@ -35,6 +35,16 @@ router.post('/addToCart' , auth , async (req,res)=>{
     res.send(cartItem);
 }
 catch(e){
+   if(e.name==="SequelizeUniqueConstraintError"){
+       console.log('mawgod asa7by');
+       res.status(500).send({
+           from: "seif",
+           to: "smsm",
+           message:"yasta el bta3 da mawgod fe elcart aslan :D ,  ana 3arf enk hat7tag error unique 3ashan t'handle el user w tbtlo toast w kda :D 7elwa el tarre2a d :D ? ha3mlk kman code lel error 3ashan t3rf t2fsho :D "
+           ,code : "69"
+       });
+   }
+   
     console.log(e);
     res.status(501).send(e);
 }
