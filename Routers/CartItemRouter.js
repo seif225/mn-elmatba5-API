@@ -11,7 +11,8 @@ const Cart = require('../Models/CartModel.js')
 router.post('/addToCart' , auth , async (req,res)=>{
     const userId = req.body.id;
     
-    if(userId===null) return res.status(500).send('id cannot be null')
+    if(userId===null||undefined) 
+        return res.status(500).send('id cannot be null')
 
     try {
         const user = await User.findOne({
