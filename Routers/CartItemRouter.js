@@ -10,8 +10,8 @@ const CartItem = require('../Models/CartItemModel.js')
 
 
 router.post('/addToCart' , auth , async (req,res)=>{
-    const userId = req.query.userId;
-    const mealId = req.query.mealId;
+    const userId = req.body.userId;
+    const mealId = req.body.mealId;
     
     if(userId===null || userId===undefined) 
         return res.status(505).send(new Error('User Id cannot be null'))

@@ -11,7 +11,8 @@ const CartItem=connection.define('Cart_item',{
     },
     init_price:{
         type:Sequelize.FLOAT,
-        allowNull:false
+        allowNull:false,
+        defaultValue:0
     },
     discount:{
         type:Sequelize.FLOAT,
