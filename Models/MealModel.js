@@ -55,6 +55,12 @@ const Meal = connection.define('Meal',{
 
 })
 
-Meal.hasOne(CartItem);
+Meal.hasOne(CartItem,{
+    foreignKey:{
+        allowNull:false,
+        unique:true
+    }
+});
 CartItem.belongsTo(Meal);
+
 module.exports = Meal;
