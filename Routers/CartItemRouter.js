@@ -1,5 +1,6 @@
 const connection = require('../connection/connection.js')
 const cartItem = require('../Models/CartItemModel.js')
+const express = require('express')
 const router = new express.Router();
 const auth = require('../auth/Auth.js')
 const Meal = require('../Models/MealModel.js')
@@ -10,6 +11,8 @@ const Cart = require('../Models/CartModel.js')
 router.post('/addToCart' , auth , async (req,res)=>{
     const userId = req.body.id;
     
+    if(userId===null) return res.status(500).send('id cannot be null')
+
     try {
         const user = await User.findOne({
         where:{
