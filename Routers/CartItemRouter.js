@@ -12,11 +12,14 @@ router.post('/addToCart' , auth , async (req,res)=>{
     const userId = req.query.userId;
     const mealId = req.query.mealId;
     
-    if(userId===null || userId===undefined) 
+    try {if(userId===null || userId===undefined) 
          throw new Error('User Id cannot be null')
 
         if(mealId===null || mealId===undefined) 
-        throw new Error('meal Id cannot be null')
+        throw new Error('meal Id cannot be null')}
+        catch(e){
+            res.status(404).send(e)
+        }
 
     try {
         const user = await User.findOne({
