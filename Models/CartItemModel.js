@@ -9,19 +9,12 @@ const CartItem=connection.define('Cart_item',{
          primaryKey:true,
         
     },
-    init_price:{
-        type:Sequelize.FLOAT,
-        allowNull:false,
-        defaultValue:0
-    },
+   
     discount:{
         type:Sequelize.FLOAT,
         defaultValue:1
     },
-    final_price:{
-        type:Sequelize.FLOAT,
-        defaultValue:this.discount*this.init_price
-    },
+   
     quantity:{
         type:Sequelize.INTEGER,
         defaultValue:1
