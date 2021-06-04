@@ -3,7 +3,6 @@ const User = require('../Models/UserModel.js')
 const express = require('express')
 const router = new express.Router();
 const auth = require('../auth/Auth.js')
-const jwt = require('jsonwebtoken')
 const Meal = require('../Models/MealModel.js')
 const Sequelize = require('sequelize')
 const { QueryTypes } = require('sequelize');

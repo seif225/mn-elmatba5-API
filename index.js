@@ -6,9 +6,11 @@ const connection = require('./connection/connection.js')
 const UserRouter = require('./Routers/UserRouter.js')
 const bodyParser = require('body-parser')
 const MealRouter = require('./Routers/MealRouter')
+const CartItemRouter = require('./Routers/CartItemRouter');
 app.use(bodyParser.json())
 app.use(UserRouter)
 app.use(MealRouter)
+app.use(CartItemRouter);
 
 connect();
 async function connect(){
